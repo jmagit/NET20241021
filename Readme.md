@@ -1,5 +1,10 @@
 # Testing .Net y QA
 
+## Documentación
+
+- [Pruebas en .NET](https://learn.microsoft.com/es-es/dotnet/core/testing/)
+- [Visual Studio Testing](https://learn.microsoft.com/es-es/visualstudio/test/unit-test-basics?view=vs-2022)
+
 ## Instalación
 
 - [Visual Studio](https://visualstudio.microsoft.com/es/downloads/)
