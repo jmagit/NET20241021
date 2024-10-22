@@ -16,13 +16,15 @@ namespace Utilidades.Tests {
 
             Assert.Equal(3, actual);
         }
+
         [Fact()]
         public void SumaKOTest() {
             var sut = new Calculadora();
 
-            var actual = sut.Suma(1, -0.9);
+            var actual = sut.Suma(0.1, 0.2);
 
             Assert.Equal(0.3, actual);
         }
+
     }
 }
