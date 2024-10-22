@@ -8,9 +8,15 @@ using System.Threading.Tasks;
 
 namespace Utilidades.Tests {
     public class CalculadoraTests {
+        private Calculadora sut;
+
+        public CalculadoraTests() {
+            sut = new Calculadora();
+        }
+
         [Fact()]
         public void SumaTest() {
-            var sut = new Calculadora();
+            //var sut = new Calculadora();
 
             var actual = sut.Suma(1, 2);
 
@@ -18,8 +24,16 @@ namespace Utilidades.Tests {
         }
 
         [Fact()]
-        public void SumaKOTest() {
-            var sut = new Calculadora();
+        public void SumaDecimalTest() {
+            //var sut = new Calculadora();
+
+            var actual = sut.Suma(0.1m, (decimal)0.2);
+
+            Assert.Equal(0.3m, actual);
+        }
+        [Fact()]
+        public void SumaIEEETest() {
+            //var sut = new Calculadora();
 
             var actual = sut.Suma(0.1, 0.2);
 

@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Utilidades {
     public class Calculadora {
-        public double Suma(double a, double b) {
+        public int Suma(int a, int b) {
             return a + b;
+        }
+
+        public double Suma(double a, double b) {
+            return RoundIEEE754(a + b);
         }
         public double Suma(double a, double b, params double[] otros) {
             var result = a + b;
@@ -18,10 +22,6 @@ namespace Utilidades {
         public decimal Suma(decimal a, decimal b) {
             return a + b;
         }
-        public int Suma(int a, int b) {
-            return a + b;
-        }
-
 
         public int Divide(int a, int b) {
             return a / b;
