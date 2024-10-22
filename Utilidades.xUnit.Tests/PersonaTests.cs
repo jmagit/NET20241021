@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xunit.Abstractions;
 
 namespace Utilidades.Tests {
     public class ListaDePersonas {
@@ -19,14 +20,28 @@ namespace Utilidades.Tests {
 
     public class PersonaTests: IClassFixture<ListaDePersonas> {
         ListaDePersonas fixture;
+        private readonly ITestOutputHelper output;
 
-        public PersonaTests(ListaDePersonas fixture) {
+        public PersonaTests(ListaDePersonas fixture, ITestOutputHelper output) {
+            this.output = output;
             this.fixture = fixture;
         }
 
-        [Fact()]
+        [Fact(), Trait("Category", "smoke")]
         public void ToStringTest() {
             Assert.Equal(2, fixture.lista.Count);
+            output.WriteLine(fixture.lista[1].ToString());
+        }
+
+        [Fact()]
+        public void GetTest() {
+            var p = fixture.lista.FirstOrDefault(item => item.Id == 1);
+            Assert.NotNull(p);
+            Assert.Multiple(
+                () => Assert.Equal(1, p.Id),
+                () => Assert.Equal("Pepito", p.Nombre),
+                () => Assert.Equal("grillo", p.Apellidos, ignoreCase: true)
+            );
         }
 
         //[Fact()]
@@ -37,10 +52,10 @@ namespace Utilidades.Tests {
     }
 
 
-    [CollectionDefinition("Personas collection")]
+    [CollectionDefinition(nameof(PersonasCollection))]
     public class PersonasCollection : ICollectionFixture<ListaDePersonas> { }
 
-    [Collection("Personas collection")]
+    [Collection(nameof(PersonasCollection))]
     public class PersonasListTests {
         ListaDePersonas fixture;
 
@@ -54,7 +69,7 @@ namespace Utilidades.Tests {
         }
     }
 
-    [Collection("Personas collection")]
+    [Collection(nameof(PersonasCollection))]
     public class PersonasTests {
         ListaDePersonas fixture;
 

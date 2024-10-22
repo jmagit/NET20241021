@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 namespace Utilidades {
     public class Calculadora {
         public int Suma(int a, int b) {
-            return a + b;
+            return checked(a + b);
         }
 
         public double Suma(double a, double b) {
             return RoundIEEE754(a + b);
         }
         public double Suma(double a, double b, params double[] otros) {
+            if(otros == null) throw new ArgumentNullException(nameof(otros));
             var result = a + b;
             foreach(var val in otros)
                 result += val;
@@ -28,6 +29,7 @@ namespace Utilidades {
         }
 
         public double Divide(double a, double b) {
+            if(b == 0) throw new DivideByZeroException();
             return a / b;
         }
 
