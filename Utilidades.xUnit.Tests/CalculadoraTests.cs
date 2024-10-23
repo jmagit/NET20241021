@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Reflection;
 using Xunit.Abstractions;
 using Moq;
+using System.Runtime.Remoting.Contexts.Fakes;
 
 namespace Utilidades.Tests {
     public class CalculadoraTests {
@@ -169,6 +170,14 @@ namespace Utilidades.Tests {
             mock.Verify(o => o.Suma(1, 1), Times.Exactly(2));
 
         }
+        //[Fact]
+        //public void Stub() {
+        //    var mock = Utilidades.Fakes.StubCalculadora() {
+        //        SumasIntTest = (a,b) => 3
+        //    };
+        //    Assert.Equal(3, mock.Suma(2, 2));
+
+        //}
 
     }
 }

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Moq;
+using Microsoft.QualityTools.Testing.Fakes;
 
 namespace Utilidades.Tests {
     public class PersonasServiceTests {
@@ -68,6 +69,15 @@ namespace Utilidades.Tests {
             var ex = Assert.Throws<ArgumentException>(() => service.add(persona));
             Assert.Equal("Datos inválidos", ex.Message);
             mock.VerifyAll();
+        }
+
+        [Fact]
+        public void EdadOK() {
+            using(ShimsContext.Create()) {
+                System.Fakes.ShimDateTime.TodayGet = () => new DateTime(2020, 1, 1);
+                var persona = new Persona { FechaNacimiento = new DateTime(2000, 1, 2) };
+                Assert.Equal(19, persona.Edad);
+            }
         }
     }
 }
