@@ -6,12 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
+using Xunit.Abstractions;
+using Moq;
 
 namespace Utilidades.Tests {
     public class CalculadoraTests {
         private Calculadora sut;
+        private readonly ITestOutputHelper output;
 
-        public CalculadoraTests() {
+        public CalculadoraTests(ITestOutputHelper output) {
+            this.output = output;
             sut = new Calculadora();
         }
 
@@ -145,6 +149,25 @@ namespace Utilidades.Tests {
             MethodInfo privado = arrange.GetType().GetMethod("RoundIEEE754", BindingFlags.NonPublic | BindingFlags.Instance);
             double actual = (double)privado.Invoke(arrange, new object[] { (0.1d + 0.2d) });
             Assert.Equal(0.3, actual);
+        }
+
+        [Fact]
+        public void Moqueada() {
+            var mock = new Mock<Calculadora>();
+            //mock.Setup(o => o.Suma(It.IsAny<int>(), It.IsAny<int>())).Returns(3);
+            var esperado = 2;
+            mock.Setup(o => o.Suma(2, 2)).Returns(() => esperado + 1);
+            mock.SetupSequence(o => o.Suma(1, 1)).Returns(1).Returns(2);
+            mock.Setup(o => o.Suma(0, 0))
+                   .Callback(() => output.WriteLine("Esto falla"))
+                   .Throws(() => new ArithmeticException());
+            var sut = mock.Object;
+            Assert.Equal(3, sut.Suma(2,2));
+            Assert.Equal(1, sut.Suma(1,1));
+            Assert.Equal(2, sut.Suma(1,1));
+            Assert.ThrowsAny<ArithmeticException>(() => sut.Suma(0,0));
+            mock.Verify(o => o.Suma(1, 1), Times.Exactly(2));
+
         }
 
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Utilidades {
     public class Calculadora {
-        public int Suma(int a, int b) {
+        public virtual int Suma(int a, int b) {
             return checked(a + b);
         }
 

@@ -21,7 +21,7 @@ namespace Utilidades {
         }
 
         public bool IsValid() {
-            return true;
+            return !Nombre.IsBlank();
         }
 
         public override string ToString() {
