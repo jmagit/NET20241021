@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 
 namespace Utilidades.Tests {
     public class CalculadoraTests {
@@ -138,6 +139,13 @@ namespace Utilidades.Tests {
             Assert.Equal(expect, actual);
         }
 
+        [Fact]
+        public void Privado() {
+            var arrange = sut;
+            MethodInfo privado = arrange.GetType().GetMethod("RoundIEEE754", BindingFlags.NonPublic | BindingFlags.Instance);
+            double actual = (double)privado.Invoke(arrange, new object[] { (0.1d + 0.2d) });
+            Assert.Equal(0.3, actual);
+        }
 
     }
 }
