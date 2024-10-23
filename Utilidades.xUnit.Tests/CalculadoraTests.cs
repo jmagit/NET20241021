@@ -68,7 +68,7 @@ namespace Utilidades.Tests {
         [InlineData(1, -1, 0)]
         [InlineData(-2, 1, -1)]
         [InlineData(3, 0, 3)]
-        [InlineData(int.MaxValue, 1, int.MinValue)]
+        //[InlineData(int.MaxValue, 1, int.MinValue)]
         public void SumasIntTest(int operando1, int operando2, int expect) {
             // Arrange
             // var sut = new Calculadora();

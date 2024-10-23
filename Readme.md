@@ -40,6 +40,10 @@
 
     docker run -d --name mssql2022 -p 1433:1433 -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=P@$$w0rd" -v "%cd%":/var/backups mcr.microsoft.com/mssql/server:2022-latest
 
+#### SQL Server (efímero)
+
+    docker run --rm -p 1433:1433 -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=P@$$w0rd" mcr.microsoft.com/mssql/server:2022-latest
+
 ## Kata
 
 - [GildedRose](https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/main/GildedRoseRequirements_es.md)
