@@ -126,6 +126,18 @@ namespace Utilidades.Tests {
             Assert.Contains("cero", ex.Message);
         }
 
+        [Theory(DisplayName = "Sumar dos valores enteros")]
+        [InlineData(2, 3, -1)]
+        [InlineData(5, 2, 3)]
+        [InlineData(1, 0, 1)]
+        [InlineData(1, 0.9, 0.1)]
+        public void RestaTest(double operando1, double operando2, double expect) {
+            // Act
+            var actual = sut.Resta(operando1, operando2);
+            // Assert
+            Assert.Equal(expect, actual);
+        }
+
 
     }
 }

@@ -49,5 +49,8 @@ namespace Utilidades {
             return decimal.ToDouble((decimal)a);
         }
 
+        public double Resta(double operando1, double operando2) {
+            return -1;
+        }
     }
 }
