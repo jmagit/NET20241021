@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit.Abstractions;
 using System.Text.RegularExpressions;
+using AutoFixture;
+using FluentAssertions;
 
 namespace Utilidades.Tests {
     public class ListaDePersonas {
@@ -32,6 +34,9 @@ namespace Utilidades.Tests {
         public void ToStringTest() {
             Assert.Equal(2, fixture.lista.Count);
             output.WriteLine(fixture.lista[1].ToString());
+            var auto = new Fixture();
+            output.WriteLine(auto.Create<int>().ToString());
+            output.WriteLine(auto.Create<Persona>().ToString());
         }
 
         [Fact()]
@@ -43,6 +48,7 @@ namespace Utilidades.Tests {
                 () => Assert.Equal("Pepito", p.Nombre),
                 () => Assert.Equal("grillo", p.Apellidos, ignoreCase: true)
             );
+            //p.Should().Be()
         }
 
         //[Fact()]

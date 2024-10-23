@@ -9,6 +9,7 @@ namespace Utilidades {
         public int Id { get; set; }
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
+        public bool Jubilado { get; set; }
         public DateTime? FechaNacimiento { get; set; }
 
         public int? Edad {
@@ -20,7 +21,7 @@ namespace Utilidades {
         }
 
         public override string ToString() {
-            return $"Id: {Id}, Nombre: {Nombre}, Apellidos: {Apellidos}";
+            return $"Id: {Id}, Nombre: {Nombre}, Apellidos: {Apellidos}, Jubilado: {(Jubilado ? "si" : "no")}";
         }
 
     }
