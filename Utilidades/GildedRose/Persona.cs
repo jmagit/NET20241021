@@ -20,6 +20,10 @@ namespace Utilidades {
             }
         }
 
+        public bool IsValid() {
+            return true;
+        }
+
         public override string ToString() {
             return $"Id: {Id}, Nombre: {Nombre}, Apellidos: {Apellidos}, Jubilado: {(Jubilado ? "si" : "no")}";
         }

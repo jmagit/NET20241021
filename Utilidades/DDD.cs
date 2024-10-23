@@ -8,7 +8,7 @@ namespace Utilidades {
     public interface IRepsitory<E, K> {
         List<E> GetAll();
         List<E> GetBy(Func<E, bool> predicate);
-        List<E> GetById(K id);
+        E GetById(K id);
         E add(E item);
         E modify(E item);
         void delete(E item);
@@ -21,7 +21,7 @@ namespace Utilidades {
     public interface IDomainService<E, K> {
         List<E> GetAll();
         List<E> GetBy(Func<E, bool> predicate);
-        List<E> GetById(K id);
+        E GetById(K id);
         E add(E item);
         E modify(E item);
         void delete(E item);
@@ -57,7 +57,7 @@ namespace Utilidades {
             throw new NotImplementedException();
         }
 
-        public List<Persona> GetById(int id) {
+        public Persona GetById(int id) {
             throw new NotImplementedException();
         }
 
