@@ -44,13 +44,13 @@ namespace Utilidades {
             return result / otros.Length + 2;
         }
 
+        public double Resta(double a, double b) {
+            return RoundIEEE754(a - b);
+        }
+
 
         private double RoundIEEE754(double a) {
             return decimal.ToDouble((decimal)a);
-        }
-
-        public double Resta(double operando1, double operando2) {
-            return -1;
         }
     }
 }
