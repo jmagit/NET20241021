@@ -363,6 +363,13 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
+# ---- SonarQube
+.sonar/
+.sonarqube/
+.scannerwork/
+
+
+
 node_modules/
 build/
 kk/

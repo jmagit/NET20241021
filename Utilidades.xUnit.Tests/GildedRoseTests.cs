@@ -11,7 +11,7 @@ namespace GildedRoseKata.Tests {
     public class GildedRoseTests {
         //[Theory()]
         //[InlineData(11, 10, 10, 9)]
-        //[InlineData(7, 1, 6, 0)]
+        ////[InlineData(7, 1, 6, 0)]
         ////[InlineData(5, -5, 4, 0)]
         //[InlineData(0, 3, -1, 1)]
         //public void Product_Common_Test(int sellIn, int quality, int sellInResult, int qualityResult) {
