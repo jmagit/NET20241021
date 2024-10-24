@@ -367,7 +367,7 @@ FodyWeavers.xsd
 .sonar/
 .sonarqube/
 .scannerwork/
-
+sonar-scan.cmd
 
 
 node_modules/
