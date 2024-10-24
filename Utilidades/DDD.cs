@@ -46,7 +46,7 @@ namespace Utilidades {
             } catch(Exception ex) {
                 if(ex.Message.StartsWith("UNIQUE CONTRAINS"))
                     throw new ArgumentException("Datos inválidos", ex);
-                throw ex;
+                throw;
             }
         }
 

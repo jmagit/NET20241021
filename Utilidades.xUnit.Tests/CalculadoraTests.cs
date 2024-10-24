@@ -170,6 +170,15 @@ namespace Utilidades.Tests {
             mock.Verify(o => o.Suma(1, 1), Times.Exactly(2));
 
         }
+
+        [Fact]
+        public void Flujo() {
+            var actual = sut.Resta(1, 0);
+            Assert.Equal(1, actual);
+            actual = sut.Suma(actual, 1);
+            actual = sut.Divide(actual, 2);
+            Assert.Equal(2, actual);
+        }
         //[Fact]
         //public void Stub() {
         //    var mock = Utilidades.Fakes.StubCalculadora() {
