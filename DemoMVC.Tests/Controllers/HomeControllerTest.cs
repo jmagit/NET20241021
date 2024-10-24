@@ -8,7 +8,7 @@ using System.Text;
 using System.Web.Mvc;
 using Utilidades;
 
-namespace DemoMVC.Tests.Controllers {
+namespace DemoMVC.Controllers.Tests {
     [TestClass]
     public class HomeControllerTest {
         [TestMethod]

@@ -177,7 +177,7 @@ namespace Utilidades.Tests {
             Assert.Equal(1, actual);
             actual = sut.Suma(actual, 1);
             actual = sut.Divide(actual, 2);
-            Assert.Equal(2, actual);
+            Assert.Equal(1, actual);
         }
         //[Fact]
         //public void Stub() {
