@@ -179,14 +179,13 @@ namespace Utilidades.Tests {
             actual = sut.Divide(actual, 2);
             Assert.Equal(1, actual);
         }
-        //[Fact]
-        //public void Stub() {
-        //    var mock = Utilidades.Fakes.StubCalculadora() {
-        //        SumasIntTest = (a,b) => 3
-        //    };
-        //    Assert.Equal(3, mock.Suma(2, 2));
-
-        //}
+        [Fact]
+        public void StubTest() {
+            var mock = new Utilidades.Fakes.StubCalculadora() {
+                SumaInt32Int32 = (a, b) => 3
+            };
+            Assert.Equal(3, mock.Suma(2, 2));
+        }
 
     }
 }
